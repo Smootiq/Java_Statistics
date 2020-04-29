@@ -1,26 +1,26 @@
 package ru.netology.stats;
 
 public class StatsService {
-    public long calculateSum(long[] purchases) {
-        long sum = 0;
-        for (long purchase : purchases) {
+    public int calculateSum(int[] purchases) {
+        int sum = 0;
+        for (int purchase : purchases) {
             sum += purchase;
         }
         return sum;
     }
-
-    public long findMax(long[] purchases) {
-        long currentMax = purchases[0];
-        for (long purchase : purchases) {
+    public int findMax(int[] purchases) {
+        int currentMax = purchases[0];
+        for (int purchase : purchases) {
             if (currentMax < purchase) {
                 currentMax = purchase;
             }
         }
         return currentMax;
     }
-    public long findMin(long[] purchases) {
-        long currentMin = purchases[0];
-        for (long purchase : purchases) {
+
+    public int findMin(int[] purchases) {
+        int currentMin = purchases[0];
+        for (int purchase : purchases) {
             if (currentMin > purchase) {
                 currentMin = purchase;
             }

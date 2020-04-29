@@ -8,6 +8,7 @@ public class StatsService {
         }
         return sum;
     }
+
     public int findMax(int[] purchases) {
         int currentMax = purchases[0];
         for (int purchase : purchases) {

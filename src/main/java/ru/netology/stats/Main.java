@@ -3,30 +3,30 @@ package ru.netology.stats;
 public class Main {
     public static void main(String[] args) {
         StatsService service = new StatsService();
-        int[] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int[] numbers = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int minValue = numbers[0];
+        int minIndex = 0;
+        int maxValue = numbers[0];
+        int maxIndex = 0;
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] < minValue) {
+                minValue = numbers[i];
+                minIndex = i;
+            }
+            if (numbers[i] > maxValue) {
+                maxValue = numbers[i];
+                maxIndex = i;
+            }
+        }
+        System.out.println( "Number month min sales: " + maxIndex );
+        System.out.println( "Number month max sales: " + minIndex );
 
         // Сумма всех продаж
-        int total = service.calculateSum(purchases);
-        System.out.println(total);
+        int total = service.calculateSum( numbers );
+        System.out.println( "Total sum: " + total );
 
         // Средняя сумма продаж
         int average = total / 12;
-        System.out.println(average);
-
-        // Максимальная сумма продаж
-        int max = service.findMax(purchases);
-        System.out.println(max);
-
-        // Минимальная сумма продаж
-        int min = service.findMin(purchases);
-        System.out.println(min);
-
-        // Количество месяцев, где продажи ниже среднего
-        int saleslow = total / max * 12 / average;
-        System.out.println(saleslow);
-
-        // Количество месяцев, где продажи выше среднего
-        int saleshigh = average * 12 / max;
-        System.out.println(saleshigh);
+        System.out.println( "Average sales: " + average );
     }
 }

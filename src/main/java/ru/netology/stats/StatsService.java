@@ -8,15 +8,16 @@ public class StatsService {
         }
         return sum;
     }
-    public int calculateAverage(int[] numbers) {
+
+    public static int calculateAverage(int[] numbers) {
         int sum = 0;
         for (int purchase : numbers) {
             sum += purchase;
         }
-        int average = sum / 12;
-        return average;
+        return sum / 12;
     }
-    public int calculateMin(int[] numbers) {
+
+    public int calculateMax(int[] numbers) {
         int maxValue = numbers[0];
         int maxIndex = 0;
         for (int i = 1; i < numbers.length; i++) {
@@ -27,7 +28,8 @@ public class StatsService {
         }
         return maxIndex;
     }
-    public int calculateMax(int[] numbers) {
+
+    public int calculateMin(int[] numbers) {
         int minValue = numbers[0];
         int minIndex = 0;
         for (int i = 1; i < numbers.length; i++) {
@@ -38,27 +40,26 @@ public class StatsService {
         }
         return minIndex;
     }
-    public int calculateLowAverage(int[] numbers) {
-        int lowAverage = numbers[0];
-        int lowIndex = 0;
-        for (int i = 1; i < numbers.length; i++) {
-            if (numbers[i] < lowAverage) {
-                lowAverage = numbers[i];
-                lowIndex = i;
+
+    public static int calculateLowAverage(int[] numbers) {
+        int lowAverage = calculateAverage(numbers);
+        int count = 0;
+        for (int number : numbers) {
+            if (number > lowAverage) {
+                count++;
             }
-            else lowIndex = lowAverage;
         }
-        return lowIndex;
+        return count;
     }
+
     public int calculateHighAverage(int[] numbers) {
-        int highAverage = numbers[0];
-        int highIndex = 0;
-        for (int i = 1; i < numbers.length; i++) {
-            if (numbers[i] > highAverage) {
-                highAverage = numbers[i];
-                highIndex = i;
-            } else highIndex = highAverage;
+        int highAverage = calculateAverage(numbers);
+        int count = 0;
+        for (int number : numbers) {
+            if (number < highAverage) {
+                count++;
+            }
         }
-        return highIndex;
+        return count;
     }
 }

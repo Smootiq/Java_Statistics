@@ -1,5 +1,7 @@
 package ru.netology.stats;
 
+import static ru.netology.stats.StatsService.calculateAverage;
+
 public class Main {
     public static void main(String[] args) {
         StatsService service = new StatsService();
@@ -14,12 +16,12 @@ public class Main {
         System.out.println("Average sales: " + average);
 
         // Номер месяца, где был пик продаж
-        int minIndex = service.calculateMin(numbers);
-        System.out.println("MaxIndex: " + minIndex);
+        int maxIndex = service.calculateMax(numbers);
+        System.out.println("MaxIndex: " + maxIndex);
 
         // Номер месяца, где был минимум продаж
-        int maxIndex = service.calculateMax(numbers);
-        System.out.println("MinIndex: " + maxIndex);
+        int minIndex = service.calculateMin(numbers);
+        System.out.println("MinIndex: " + minIndex);
 
         // Кол-во месяцев, в которых продажи были ниже среднего
         int lowAverage = service.calculateLowAverage(numbers);

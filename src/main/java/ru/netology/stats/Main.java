@@ -4,29 +4,29 @@ public class Main {
     public static void main(String[] args) {
         StatsService service = new StatsService();
         int[] numbers = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int minValue = numbers[0];
-        int minIndex = 0;
-        int maxValue = numbers[0];
-        int maxIndex = 0;
-        for (int i = 1; i < numbers.length; i++) {
-            if (numbers[i] < minValue) {
-                minValue = numbers[i];
-                minIndex = i;
-            }
-            if (numbers[i] > maxValue) {
-                maxValue = numbers[i];
-                maxIndex = i;
-            }
-        }
-        System.out.println( "Number month min sales: " + maxIndex );
-        System.out.println( "Number month max sales: " + minIndex );
 
         // Сумма всех продаж
-        int total = service.calculateSum( numbers );
-        System.out.println( "Total sum: " + total );
+        int total = service.calculateSum(numbers);
+        System.out.println("Total sum: " + total);
 
         // Средняя сумма продаж
-        int average = total / 12;
-        System.out.println( "Average sales: " + average );
+        int average = service.calculateAverage(numbers);
+        System.out.println("Average sales: " + average);
+
+        // Номер месяца, где был пик продаж
+        int minIndex = service.calculateMin(numbers);
+        System.out.println("MaxIndex: " + minIndex);
+
+        // Номер месяца, где был минимум продаж
+        int maxIndex = service.calculateMax(numbers);
+        System.out.println("MinIndex: " + maxIndex);
+
+        // Кол-во месяцев, в которых продажи были ниже среднего
+        int lowAverage = service.calculateLowAverage(numbers);
+        System.out.println("LowAverage: " + lowAverage);
+
+        // Кол-во месяцев, в которых продажи были выше среднего
+        int highAverage = service.calculateHighAverage(numbers);
+        System.out.println("HighAverage: " + highAverage);
     }
 }

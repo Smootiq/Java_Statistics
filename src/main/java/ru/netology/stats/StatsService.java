@@ -14,7 +14,7 @@ public class StatsService {
         for (int purchase : numbers) {
             sum += purchase;
         }
-        return sum / 12;
+        return sum / numbers.length;
     }
 
     public int calculateMax(int[] numbers) {
@@ -23,7 +23,7 @@ public class StatsService {
         for (int i = 1; i < numbers.length; i++) {
             if (numbers[i] > maxValue) {
                 maxValue = numbers[i];
-                maxIndex = i;
+                maxIndex = i+1;
             }
         }
         return maxIndex;
@@ -35,7 +35,7 @@ public class StatsService {
         for (int i = 1; i < numbers.length; i++) {
             if (numbers[i] < minValue) {
                 minValue = numbers[i];
-                minIndex = i;
+                minIndex = i+1;
             }
         }
         return minIndex;
